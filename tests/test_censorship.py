@@ -1,4 +1,5 @@
-from censorship import is_nice
+from censorship import verify_nice
+import pytest
 
 good_word = 'cat'
 curse_word = 'pussy'
@@ -8,43 +9,37 @@ bad_with_spaces = 'husky dog 1'
 curse_word_with_spaces = 'fuck you'
 
 
-def test_correct_word(capfd):
-    is_nice(good_word)
-
-    out, err = capfd.readouterr()
-    assert out.strip() == 'word is ok'
+def test_correct_word():
+    verify_nice(good_word)
 
 
-def test_bad_word(capfd):
-    is_nice(curse_word)
+def test_bad_word():
+    with pytest.raises(Exception) as ex:
+        verify_nice(curse_word)
 
-    out, err = capfd.readouterr()
-    assert out.strip() == 'Err: contains profanity: %s' % curse_word
-
-
-def test_not_alpha(capfd):
-    is_nice(not_alpha)
-
-    out, err = capfd.readouterr()
-    assert out.strip() == 'Input can contain only letters'
+    assert 'Input should not be a profanity' in str(ex.value)
 
 
-def test_spaces(capfd):
-    is_nice(good_with_spaces)
+def test_not_alpha():
+    with pytest.raises(Exception) as ex:
+        verify_nice(not_alpha)
 
-    out, err = capfd.readouterr()
-    assert out.strip() == 'word is ok'
-
-
-def test_spaces_bad(capfd):
-    is_nice(bad_with_spaces)
-
-    out, err = capfd.readouterr()
-    assert out.strip() == 'Input can contain only letters'
+    assert 'Input can contain only letters' in str(ex.value)
 
 
-def test_spaces_curse(capfd):
-    is_nice(curse_word_with_spaces)
+def test_spaces():
+    verify_nice(good_with_spaces)
 
-    out, err = capfd.readouterr()
-    assert out.strip() == 'Err: contains profanity: %s' % curse_word_with_spaces
+
+def test_spaces_bad():
+    with pytest.raises(Exception) as ex:
+        verify_nice(bad_with_spaces)
+
+    assert 'Input can contain only letters' in str(ex.value)
+
+
+def test_spaces_curse():
+    with pytest.raises(Exception) as ex:
+        verify_nice(curse_word_with_spaces)
+
+    assert 'Input should not be a profanity' in str(ex.value)
