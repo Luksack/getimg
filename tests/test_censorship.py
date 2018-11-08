@@ -1,5 +1,6 @@
-from censorship import verify_nice
 import pytest
+
+from main.censorship import verify_nice
 
 good_word = 'cat'
 curse_word = 'pussy'
@@ -36,7 +37,6 @@ def test_spaces_bad():
         verify_nice(bad_with_spaces)
 
     assert 'Input can contain only letters' in str(ex.value)
-
 
 def test_spaces_curse():
     with pytest.raises(Exception) as ex:
