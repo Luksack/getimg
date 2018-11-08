@@ -2,47 +2,47 @@ import pytest
 
 from main.censorship import verify_nice
 
-good_word = 'cat'
-curse_word = 'pussy'
-not_alpha = 'hey!@#123'
-good_with_spaces = 'husky dog'
-bad_with_spaces = 'husky dog 1'
-curse_word_with_spaces = 'fuck you'
-profanity_exception = 'Input should not be a profanity'
-only_letters_exception = 'Input can contain only letters'
+GOOD_WORD = 'cat'
+CURSE_WORD = 'pussy'
+NOT_ALPHA = 'hey!@#123'
+GOOD_WITH_SPACES = 'husky dog'
+BAD_WITH_SPACES = 'husky dog 1'
+CURSE_WORD_WITH_SPACES = 'fuck you'
+PROFANITY_EXCEPTION = 'Input should not be a profanity'
+ONLY_LETTERS_EXCEPTION = 'Input can contain only letters'
 
 
 def test_correct_word():
-    verify_nice(good_word)
+    verify_nice(GOOD_WORD)
 
 
 def test_bad_word():
     with pytest.raises(Exception) as ex:
-        verify_nice(curse_word)
+        verify_nice(CURSE_WORD)
 
-    assert profanity_exception in str(ex.value)
+    assert PROFANITY_EXCEPTION in str(ex.value)
 
 
 def test_not_alpha():
     with pytest.raises(Exception) as ex:
-        verify_nice(not_alpha)
+        verify_nice(NOT_ALPHA)
 
-    assert only_letters_exception in str(ex.value)
+    assert ONLY_LETTERS_EXCEPTION in str(ex.value)
 
 
 def test_spaces():
-    verify_nice(good_with_spaces)
+    verify_nice(GOOD_WITH_SPACES)
 
 
 def test_spaces_bad():
     with pytest.raises(Exception) as ex:
-        verify_nice(bad_with_spaces)
+        verify_nice(BAD_WITH_SPACES)
 
-    assert only_letters_exception in str(ex.value)
+    assert ONLY_LETTERS_EXCEPTION in str(ex.value)
 
 
 def test_spaces_curse():
     with pytest.raises(Exception) as ex:
-        verify_nice(curse_word_with_spaces)
+        verify_nice(CURSE_WORD_WITH_SPACES)
 
-    assert profanity_exception in str(ex.value)
+    assert PROFANITY_EXCEPTION in str(ex.value)

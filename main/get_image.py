@@ -49,7 +49,3 @@ class ImageDownloader():
     def run(self):
         images = self.extract_data()
         self.download_image(images)
-
-
-if __name__ == '__main__':
-    ImageDownloader('cat', 5, '/Users/lukaszsack/Playground/image_download')
