@@ -8,8 +8,8 @@ def profane_words():
     with open(bad_words_location) as input_file:
         bad_list = [line.strip() for line in input_file]
 
-    # return bad_list
-    print(bad_words_location)
+    return bad_list
+
 
 def verify_nice(word):
     profanity.load_words(profane_words())
@@ -21,7 +21,3 @@ def verify_nice(word):
 
     # This is just placeholder to add any function later
     print('word is ok')
-
-#
-# if __name__ == '__main__':
-#     verify_nice('dou')
