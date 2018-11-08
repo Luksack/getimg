@@ -16,7 +16,7 @@ class ImageDownloader():
         self.run()
 
     def extract_data(self):
-        url = 'https://www.google.co.in/search?q=%s&source=lnms&tbm=isch' % self.keyword
+        url = f'https://www.google.co.in/search?q={self.keyword}&source=lnms&tbm=isch'
         response = urlopen(Request(url, headers=self.request_headers))
         soup = BeautifulSoup(response, 'html.parser')
 
@@ -33,7 +33,7 @@ class ImageDownloader():
 
     def save_image(self, raw_image, image_type):
         extension = image_type if image_type else 'jpg'
-        file_name = str(uuid.uuid4().hex) + '.' + extension
+        file_name = f'{str(uuid.uuid4().hex)}.{extension}'
         save_path = os.path.join(self.directory, file_name)
         with open(save_path, 'wb') as image_file:
             image_file.write(raw_image)
@@ -50,3 +50,6 @@ class ImageDownloader():
         images = self.extract_data()
         self.download_image(images)
 
+
+if __name__ == '__main__':
+    ImageDownloader('cat', 5, '/Users/lukaszsack/Playground/image_download')

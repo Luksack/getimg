@@ -18,6 +18,3 @@ def verify_nice(word):
         raise Exception('Input can contain only letters')
     if profanity.contains_profanity(word):
         raise Exception('Input should not be a profanity')
-
-    # This is just placeholder to add any function later
-    print('word is ok')
