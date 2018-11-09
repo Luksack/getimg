@@ -8,6 +8,7 @@ NOT_ALPHA = 'hey!@#123'
 GOOD_WITH_SPACES = 'husky dog'
 BAD_WITH_SPACES = 'husky dog 1'
 CURSE_WORD_WITH_SPACES = 'fuck you'
+MULTI_LETTERS = 'coooockkkkk'
 PROFANITY_EXCEPTION = 'Input should not be a profanity'
 ONLY_LETTERS_EXCEPTION = 'Input can contain only letters'
 
@@ -31,18 +32,14 @@ def test_not_alpha():
 
 
 def test_spaces():
-    verify_nice(GOOD_WITH_SPACES)
-
-
-def test_spaces_bad():
     with pytest.raises(Exception) as ex:
         verify_nice(BAD_WITH_SPACES)
 
     assert ONLY_LETTERS_EXCEPTION in str(ex.value)
 
 
-def test_spaces_curse():
+def test_multi_letters():
     with pytest.raises(Exception) as ex:
-        verify_nice(CURSE_WORD_WITH_SPACES)
+        verify_nice(MULTI_LETTERS)
 
     assert PROFANITY_EXCEPTION in str(ex.value)
