@@ -27,7 +27,6 @@ def remove_duplicates(word):
 def verify_nice(word):
     profanity.load_words(profane_words())
     clear_word = remove_duplicates(word)
-    print(clear_word)
     # Radek said 'only keywords no spaces allowed'
     if not word.isalpha():
         raise Exception('Input can contain only letters')
