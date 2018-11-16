@@ -6,10 +6,15 @@
 </head>
 <body>
     <h1>This is gonna be a first HyenaCORP project</h1>
-    <p>{{ var }}</p>
     <form method="POST">
+        <p>Enter keyword to search:</p>
         <input name="example">
         <input type="submit" value="Search">
     </form>
+    {% if bad_results %}
+     <p>{{ er }}</p>
+    {% elif good_results %}
+    <p>Results for: {{ good_results }}</p>
+    {% endif %}
 </body>
 </html>
