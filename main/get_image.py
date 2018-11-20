@@ -61,6 +61,3 @@ class ImageDownloader():
         images = self.extract_data()
         self.download_image(images)
 
-
-if __name__ == "__main__":
-    ImageDownloader('dog', 3, '/Users/lukaszsack/getimg/images')
