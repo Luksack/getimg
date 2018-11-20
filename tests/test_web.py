@@ -6,7 +6,7 @@ class FirstTest(unittest.TestCase):
     def setUp(self):
         self.app = web.app.test_client()
 
-    def test_one(self):
+    def test_homepage(self):
         req = self.app.get('/')
         self.assertEqual(req.status, '200 OK')
         self.assertIn('HyenaCORP Project', str(req.data))
@@ -26,3 +26,11 @@ class FirstTest(unittest.TestCase):
         req = self.app.post('/', data=data)
         self.assertEqual(req.status, '200 OK')
         self.assertIn('Input should not be a profanity', str(req.data))
+
+    def test_post_space_query(self):
+        data = {
+            'example': ' '
+        }
+        req = self.app.post('/', data=data)
+        self.assertEqual(req.status, '200 OK')
+        self.assertIn('Input can contain only letters', str(req.data))
