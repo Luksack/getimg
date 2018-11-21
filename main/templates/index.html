@@ -5,16 +5,17 @@
     <title>HyenaCORP Project</title>
 </head>
 <body>
-    <h1>This is gonna be a first HyenaCORP project</h1>
+    <h1>Mustashearch</h1>
     <form method="POST">
         <p>Enter keyword to search:</p>
-        <input name="example">
+        Keyword: <input name="query" type="text"><br>
+        Amount: <input name="amount" type="number" min="0"><br>
         <input type="submit" value="Search">
     </form>
     {% if bad_results %}
-     <p>{{ er }}</p>
+        <p>{{ er }}</p>
     {% elif good_results %}
-    <p>Results for: {{ good_results }}</p>
+        <p>Results for: {{ good_results }}</p>
     {% endif %}
 
     {% for image in mylist %}

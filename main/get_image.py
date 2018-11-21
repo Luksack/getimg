@@ -60,6 +60,3 @@ class ImageDownloader():
         self.clean_folder()
         images = self.extract_data()
         self.download_image(images)
-
-if __name__=='__main__':
-    ImageDownloader('cat', 2)
