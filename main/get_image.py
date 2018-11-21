@@ -7,12 +7,13 @@ import glob
 
 
 class ImageDownloader():
-    def __init__(self, keyword, amount, directory):
+    def __init__(self, keyword, amount):
         self.keyword = keyword
         self.amount = amount
-        self.directory = directory
         self.request_headers = {
             'User-Agent': "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36"}
+        self.project_dir = os.path.dirname(os.path.dirname(__file__))
+        self.directory = os.path.join(self.project_dir, 'main', 'static')
         self.run()
 
     def extract_data(self):
@@ -34,7 +35,7 @@ class ImageDownloader():
     def save_image(self, raw_image, image_type, name):
         extension = image_type if image_type else 'jpg'
         file_name = f'{name}.{extension}'
-        save_path = os.path.join(self.directory, file_name)
+        save_path = os.path.join(str(self.directory), file_name)
         with open(save_path, 'wb') as image_file:
             image_file.write(raw_image)
 
@@ -50,8 +51,7 @@ class ImageDownloader():
                 print(e)
 
     def clean_folder(self):
-        project_dir = os.path.dirname(os.path.dirname(__file__))
-        images_location = os.path.join(project_dir, 'images', '*')
+        images_location = os.path.join(self.project_dir, 'main', 'static', '*')
         files = glob.glob(f'{images_location}')
         for i in files:
             os.remove(i)
@@ -61,3 +61,5 @@ class ImageDownloader():
         images = self.extract_data()
         self.download_image(images)
 
+if __name__=='__main__':
+    ImageDownloader('cat', 2)

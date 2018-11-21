@@ -16,5 +16,10 @@
     {% elif good_results %}
     <p>Results for: {{ good_results }}</p>
     {% endif %}
+
+    {% for image in mylist %}
+        <img src="{{url_for('static', filename= image ) }}" alt={{image}} style="width:128px;height:128px;">
+    {% endfor %}
+
 </body>
 </html>
