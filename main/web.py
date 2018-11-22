@@ -22,7 +22,6 @@ def user_input():
     else:
         get_image.ImageDownloader(text, int(amount))
         mylist = [f for f in os.listdir(directory) if not f.startswith('.')]
-        print(mylist)
         return render_template('index.html', good_results=text, mylist=mylist)
 
 
