@@ -1,7 +1,11 @@
-from flask import Flask, request, render_template
-from main import censorship, get_image
 import os
+
+from flask import Flask, request, render_template
+
+import censorship, get_image
+
 app = Flask(__name__)
+
 
 @app.route('/')
 def home_page():
