@@ -51,7 +51,7 @@ class ImageDownloader():
                 print(e)
 
     def clean_folder(self):
-        images_location = os.path.join(self.project_dir, 'static', '*')
+        images_location = os.path.join(self.project_dir, 'main', 'static', '*')
         files = glob.glob(f'{images_location}')
         for i in files:
             os.remove(i)
