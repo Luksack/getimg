@@ -4,10 +4,11 @@ import os
 
 def profane_words():
     project_dir = os.path.dirname(os.path.dirname(__file__))
-    bad_words_location = os.path.join(project_dir, 'data', 'bad_words.txt')
+    bad_words_location = os.path.join(project_dir, 'getimg', 'data', 'bad_words.txt')
     with open(bad_words_location) as input_file:
         bad_list = [line.strip() for line in input_file]
 
+    print(bad_words_location)
     return bad_list
 
 
