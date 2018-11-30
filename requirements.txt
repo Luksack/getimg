@@ -2,3 +2,5 @@ profanity
 pytest-cov
 Flask
 gunicorn
+bs4
+python 3.7
