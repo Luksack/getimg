@@ -13,7 +13,7 @@ class ImageDownloader():
         self.request_headers = {
             'User-Agent': "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36"}
         self.project_dir = os.path.dirname(os.path.dirname(__file__))
-        self.directory = os.path.join(self.project_dir, 'main', 'static')
+        self.directory = os.path.join(self.project_dir, 'static')
         self.run()
 
     def extract_data(self):
@@ -51,7 +51,7 @@ class ImageDownloader():
                 print(e)
 
     def clean_folder(self):
-        images_location = os.path.join(self.project_dir, 'main', 'static', '*')
+        images_location = os.path.join(self.project_dir, 'static', '*')
         files = glob.glob(f'{images_location}')
         for i in files:
             os.remove(i)

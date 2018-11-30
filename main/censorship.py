@@ -8,7 +8,6 @@ def profane_words():
     with open(bad_words_location) as input_file:
         bad_list = [line.strip() for line in input_file]
 
-    print(bad_words_location)
     return bad_list
 
 
