@@ -17,7 +17,6 @@ def user_input():
     image_amount = 10
     project_dir = os.path.dirname(os.path.abspath(__file__))
     directory = os.path.join(project_dir, 'static')
-    print(directory)
     text = request.form['query']
     try:
         censorship.verify_nice(text)
