@@ -2,7 +2,7 @@ import os
 
 from flask import Flask, request, render_template
 
-from main import censorship, get_image
+from resources import censorship, get_image
 
 app = Flask(__name__)
 

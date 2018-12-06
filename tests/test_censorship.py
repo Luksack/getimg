@@ -1,6 +1,6 @@
 import pytest
 
-from main.censorship import verify_nice
+from resources.censorship import verify_nice
 
 GOOD_WORD = 'cat'
 CURSE_WORD = 'pussy'
