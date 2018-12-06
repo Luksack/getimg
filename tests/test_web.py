@@ -1,5 +1,6 @@
 import unittest
-from main import web
+
+from resources import web
 
 
 class FirstTest(unittest.TestCase):

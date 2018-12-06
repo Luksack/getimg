@@ -2,3 +2,4 @@ profanity
 pytest-cov
 Flask
 gunicorn
+beautifulsoup4
