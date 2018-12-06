@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>HyenaCORP Project</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <h1>Mustashearch</h1>
+<h2>Css test i chuj</h2>
     <form method="POST">
-        <p>Enter keyword to search:</p>
         <label>Keyword: </label>
         <input name="query" type="text">
         <input type="submit" value="Search">
@@ -19,7 +19,7 @@
     {% endif %}
 
     {% for image in mylist %}
-        <img src="{{url_for('static', filename= image ) }}" alt={{image}} style="width:300px;height:300px;">
+        <img src="{{url_for( 'static' ,  filename='images/' + image ) }}" alt={{image}} style="width:300px;height:300px;">
     {% endfor %}
 
 </body>
