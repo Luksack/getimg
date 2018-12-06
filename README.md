@@ -14,7 +14,7 @@ To run flask server go to project location where web.py is:
 ### On linux:
 Setting flask app(best to do all three one by one):
 ```
-export FLASK_APP=web.py
+export FLASK_APP=app.py
 ```
 Setting devvelopment env:
 ```
@@ -27,9 +27,9 @@ flask run
 ### On Windows:
 Setting flask app(best to do all three one by one):
 ```
-set FLASK_APP=web.py
+set FLASK_APP=app.py
 ```
-Setting devvelopment env:
+Setting development env:
 ```
 set FLASK_ENV=development
 ```
