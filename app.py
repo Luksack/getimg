@@ -12,7 +12,7 @@ def home_page():
     return render_template('index.html')
 
 
-@app.route('/', methods=['POST', 'GET'])
+@app.route('/', methods=['POST'])
 def user_input():
     image_amount = 10
     project_dir = os.path.dirname(os.path.abspath(__file__))
