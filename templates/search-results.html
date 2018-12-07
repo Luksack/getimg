@@ -6,21 +6,8 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-<div class="container">
-    <div class="search-box">
-        <form method="POST">
-            <input name="query" type="text" class="search-term" placeholder="Search...">
-            <input type="submit" class="search-button" value="Search">
-        </form>
-    </div>
-    <div class="error">
-    {% if bad_results %}
-        <p>{{ er }}</p>
-    {% endif %}
-    </div>
     {% for image in mylist %}
         <img src="{{url_for( 'static' ,  filename='images/' + image ) }}" alt={{image}} style="width:300px;height:300px;">
     {% endfor %}
-</div>
 </body>
 </html>
