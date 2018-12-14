@@ -6,6 +6,11 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
+<div class="return">
+    <form action="/">
+        <input type="submit" id="button-return" value="Go Back" />
+    </form>
+</div>
 <div class="container-search">
     {% for image in mylist %}
         <img src="{{url_for( 'static' ,  filename='images/' + image ) }}" alt={{image}} style="width:300px;height:300px;">

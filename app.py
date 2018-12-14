@@ -11,6 +11,7 @@ app = Flask(__name__)
 def home_page():
     return render_template('index.html')
 
+
 @app.route('/search-results')
 def search_results():
     project_dir = os.path.dirname(os.path.abspath(__file__))
